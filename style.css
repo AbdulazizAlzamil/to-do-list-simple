@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+:root {
+  --clr-green: rgb(108, 208, 73);
+  --clr-light-green: rgba(109, 208, 73, 0.46);
+  --clr-red: #CC4B4B;
+  --clr-gray: #acacac;
+  --clr-light-gray: rgba(163, 163, 163, 0.3);
+}
+
+body {
+  background: #989898;
+  font-family: "Poppins";
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 50%;
+  margin: 100px auto;
+  padding: 20px;
+}
+
+#task_adder {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  padding: 7px;
+  background: #fff;
+  min-height: 50px;
+  margin-bottom: 40px;
+}
+
+#task_adder #input_text {
+  flex: 1 1 calc(70% - 14px);
+  border: none;
+  outline: none;
+  padding: 8px;
+  font-size: 1em;
+  background: var(--clr-light-gray);
+  color: #000;
+  font-family: "Poppins";
+  border: 2px solid var(--clr-green);
+  border-radius: 4px;
+}
+
+#task_adder #input_text::placeholder {
+  color: var(--clr-gray);
+  user-select: none;
+}
+
+#task_adder #btn_add {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: calc(30% - 14px);
+  background: var(--clr-green);
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  border-radius: 4px;
+}
+
+.current_tasks {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: 7px;
+  background: #fff;
+  min-height: 50px;
+  position: relative;
+  border-top-left-radius: 0;
+  padding: 7px;
+}
+
+.current_tasks::after {
+  content: "Current Tasks";
+  position: absolute;
+  top: -40px;
+  left: 0;
+  width: 140px;
+  height: 40px;
+  background: var(--clr-green);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px 5px 0 0;
+  border-bottom-right-radius: 0;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--clr-light-green);
+  padding: 5px 8px;
+  min-height: 40px;
+  word-break: break-word;
+  border-radius: 4px;
+}
+
+.task .task_text {
+  flex-basis: 90%;
+  text-align: left;
+}
+
+.btn_delete {
+  display: grid;
+  place-items: center;  
+  width: 30px;
+  align-self: stretch;
+  height: 30px;
+  background: rgb(224, 91, 91);
+  margin-left: auto;
+  margin-right: -3px;
+  border-radius: 4px;
+}
+
+.btn_delete::before {
+  content: 'X';
+  color: #fff;
+}
+
+.btn_delete:hover {
+  cursor: pointer;
+}
