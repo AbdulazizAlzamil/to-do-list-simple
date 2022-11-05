@@ -43,7 +43,7 @@ body {
 
 @media (max-width: 768px) {
   .container {
-    max-width: 80%;
+    max-width: 100%;
   }
   #task_adder {
     flex-direction: column;
