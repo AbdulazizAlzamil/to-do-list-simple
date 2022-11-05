@@ -1,2 +1,2 @@
-# The most simple to-do list application :)
+# The most simple to-do list web application :)
 A simple to-do list application with functionality of adding and deleting tasks.
