@@ -12,13 +12,14 @@
 :root {
   --clr-green: rgb(108, 208, 73);
   --clr-light-green: rgba(109, 208, 73, 0.46);
-  --clr-red: #CC4B4B;
+  --clr-red: rgb(224, 91, 91);
   --clr-gray: #acacac;
   --clr-light-gray: rgba(163, 163, 163, 0.3);
+  --shadow: 0 5px 10px rgba(0, 0, 0, 5%);
 }
 
 body {
-  background: #989898;
+  background: #e1e1e1;
   font-family: "Poppins";
 }
 
@@ -26,9 +27,21 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  max-width: 50%;
+  max-width: 800px;
   margin: 100px auto;
   padding: 20px;
+}
+
+@media (max-width: 950px) {
+  .container {
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 500px) {
+  .container {
+    max-width: 100%;
+  }
 }
 
 #task_adder {
@@ -39,28 +52,26 @@ body {
   background: #fff;
   min-height: 50px;
   margin-bottom: 40px;
+  box-shadow: var(--shadow);
 }
 
 @media (max-width: 768px) {
-  .container {
-    max-width: 100%;
-  }
   #task_adder {
     flex-direction: column;
   }
-}
+} 
 
 #task_adder #input_text {
-  flex: 1 1 calc(70% - 14px);
+  flex: calc(80% - 10.5px);
   border: none;
   outline: none;
   padding: 8px;
-  font-size: 1em;
-  background: var(--clr-light-gray);
+  font-size: 0.95em;
+  background: #e1e1e140;
   color: #000;
   font-family: "Poppins";
   border: 2px solid var(--clr-green);
-  border-radius: 4px;
+  border-radius: 3px;
 }
 
 #task_adder #input_text::placeholder {
@@ -72,14 +83,19 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex: calc(30% - 14px);
+  flex: calc(20% - 10.5px);
   background: var(--clr-green);
   color: #fff;
   text-align: center;
   cursor: pointer;
   user-select: none;
   -webkit-user-select: none;
-  border-radius: 4px;
+  border-radius: 3px;
+  transition: 200ms;
+}
+
+#task_adder #btn_add:hover {
+  opacity: 0.9;
 }
 
 @media (max-width: 768px) {
@@ -98,6 +114,7 @@ body {
   position: relative;
   border-top-left-radius: 0;
   padding: 7px;
+  box-shadow: var(--shadow);
 }
 
 .current_tasks::after {
@@ -124,7 +141,7 @@ body {
   padding: 5px 8px;
   min-height: 40px;
   word-break: break-word;
-  border-radius: 4px;
+  border-radius: 3px;
 }
 
 .task .task_text {
@@ -134,18 +151,23 @@ body {
 
 .btn_delete {
   display: grid;
-  place-items: center;  
+  place-items: center;
   width: 30px;
-  align-self: stretch;
+  align-self: start;
   height: 30px;
-  background: rgb(224, 91, 91);
+  background: var(--clr-red);
   margin-left: auto;
   margin-right: -3px;
-  border-radius: 4px;
+  border-radius: 3px;
+  transition: 200ms;
+}
+
+.btn_delete:hover {
+  opacity: 0.9;
 }
 
 .btn_delete::before {
-  content: 'X';
+  content: "X";
   color: #fff;
 }
 

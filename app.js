@@ -25,7 +25,7 @@ loadUI();
 // Adding task
 btnAdd.addEventListener("click", (e) => {
   e.preventDefault();
-  if (inputTxt.value) {
+  if (inputTxt.value.trim()) {
     let newTask = new Task(inputTxt.value, Date.now());
     tasks.push(newTask);
     addTaskToUI(newTask);
@@ -35,6 +35,10 @@ btnAdd.addEventListener("click", (e) => {
     }
     inputTxt.value = "";
     inputTxt.focus();
+    
+  } else if(inputTxt.value.length != inputTxt.value.trim().lenght) {
+    inputTxt.value = "";
+    showErrorMsg();
   } else {
     showErrorMsg();
   }
@@ -54,7 +58,7 @@ currentTasks.addEventListener("click", (e) => {
   }
 });
 
-window.onkeydown = (e) => {
+onkeydown = (e) => {
   if (e.key == "Enter") {
     btnAdd.click();
   }
@@ -107,7 +111,7 @@ function loadUI() {
       addTaskToUI(task);
     });
 
-    if(getLocalStorage().length)
+    if (getLocalStorage().length)
       document.querySelector(".hint").style.display = "none";
   }
 }
